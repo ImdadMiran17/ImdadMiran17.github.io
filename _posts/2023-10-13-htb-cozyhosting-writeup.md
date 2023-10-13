@@ -1,5 +1,5 @@
 ---
-title: HTB Cozyhosing Writeup
+title: HTB Cozyhosting Writeup
 date: 2023-10-13 09:20:16 +0600
 categories: [Linux, Easy]
 tags: [htb]     
