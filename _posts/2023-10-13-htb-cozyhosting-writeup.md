@@ -5,7 +5,7 @@ categories: [Linux, Easy]
 tags: [htb]     
 ---
 
-![Cozyhosting Pwned](../assets/img/cozyhosting_pwned.PNG "Pwned haha!!")
+![Cozyhosting Pwned](https://github.com/ImdadMiran17/ImdadMiran17.github.io/tree/main/assets/img/cozyhosting_pwned.png "Pwned haha!!")
 
 # Introduction
 Hi, Hackers!!. Today we will solve the HTB machine Cozyhosting. It is a fun linux machine. And also tagged as Easy. Let's dive into the fun stuff
