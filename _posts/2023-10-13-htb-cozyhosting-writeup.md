@@ -2,7 +2,8 @@
 title: HTB Cozyhosting Writeup
 date: 2023-10-13 09:20:16 +0600
 categories: [Linux, Easy]
-tags: [htb]     
+tags: [htb] 
+toc: true    
 ---
 
 ![Cozyhosting Pwned](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_pwned.PNG "Pwned haha!!")
