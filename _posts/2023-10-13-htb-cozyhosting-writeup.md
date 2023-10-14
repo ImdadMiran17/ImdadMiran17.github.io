@@ -163,7 +163,7 @@ HTTP/1.1 302
 Server: nginx/1.18.0 (Ubuntu)
 Date: Sat, 14 Oct 2023 13:32:03 GMT
 Content-Length: 0
-Location: http://cozyhosting.htb/admin?error=ssh: Could not resolve hostname `uid=1001(app)`: Name or service not known
+Location: http://cozyhosting.htb/admin?error=ssh: Could not resolve hostname uid=1001(app): Name or service not known
 Connection: close
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 0
@@ -190,5 +190,35 @@ ctrl+z(bg)
 $ stty raw -echo;fg
 $ export TERM = xterm
 ```
+As we are in the machine, the traditional step would be to run linpeas.sh on the machine. And also there is a jar file called `cloudhosting-0.0.1`. Extract the jar file and run linpeas.
 
+I tried to open the jar file with `JADX`. But it's too much to find something. Then used `egrep` to filter some passwords.
 
+![Jar file](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_cloud.png)
+
+Also the linpeas results:
+
+![Found Postgres](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_linpeas.png)
+
+![Users Found](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_users_linpeas.png)
+
+Filtering the jar file, we found a password. And from linpeas, there is a postgres server running and potential users of the machine. We can use the password to enter into the postgres server. After entering into the postgres, we enumerated and found `cozyhosting` database, `users` table and two bcrypt hashes. If you give those to hashcat with our favorite wordlist `rockyou.txt`, you will get this.
+
+![Hashcat Result](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_hashcat.PNG)
+
+We can get into machine this time with ssh as we have the password and users. We're in.
+
+# Privilege Escalation
+
+![User Josh](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_josh.png)
+
+User josh can run ssh as root. So now we go to our trusted old friend ![GTFOBins](https://gtfobins.github.io/). Run the ssh command as root.
+
+```bash
+$ sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
+```
+Now we are root.
+
+![Voila!](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_user_root.png)
+
+Happy Hacking!!!
