@@ -34,7 +34,7 @@ But we still don't know what could be under there. So I searched for `robots.txt
 
 ![Error Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_error.png)
 
-I googled it and found that it's a `Sprint Boot` framework. Next, let's search for more directories. As it is a spring boot framework, you can use `seclists` spring boot wordlist. I used dirsearch.
+I googled it and found that it's a `Spring Boot` framework. Next, let's search for more directories. As it is a spring boot framework, you can use `seclists` spring boot wordlist. I used dirsearch.
 
 ![Found More](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_dirsearch.png)
 
