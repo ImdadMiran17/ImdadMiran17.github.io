@@ -213,7 +213,7 @@ We can get into machine this time with ssh as we have the password and users. We
 
 ![User Josh](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_josh.png)
 
-User josh can run ssh as root. So now we go to our trusted old friend ![GTFOBins](https://gtfobins.github.io/). Run the ssh command as root.
+User josh can run ssh as root. So now we go to our trusted old friend [GTFOBins](https://gtfobins.github.io/). Run the ssh command as root.
 
 ```bash
 $ sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
