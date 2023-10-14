@@ -21,3 +21,11 @@ And also found what services are running in those open ports.
 ![Cozyhosting Services](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_nmap_service.png)
 
 If you search with the given IP in your browser, you will be redirected to `http://cozyhosting.htb`. So we need to add the IP and hostname in the hosts file. For linux, it's `/etc/hosts` and for windows, it's `c:\Windows\System32\Drivers\etc\hosts`.
+
+Then we get,
+
+![Home Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_port80.png)
+
+And We found a login page too.
+
+![Login Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_login.png)
