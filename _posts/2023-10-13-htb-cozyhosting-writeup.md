@@ -29,3 +29,27 @@ Then we get,
 And We found a login page too.
 
 ![Login Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_login.png)
+
+But we still don't know what could be under there. So I searched for `robots.txt`. And I found this.
+
+![Error Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_error.png)
+
+I googled it and found that it's a `Sprint Boot` framework. Next, let's search for more directories. As it is a spring boot framework, you can use `seclists` spring boot wordlist. I used dirsearch.
+
+![Found More](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_dirsearch.png)
+
+We found a couple of `actuator` directories. Let's visit this....
+
+![Actuator Dir](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_actuator.png)
+
+The important one could be `sessions`. Let's see....
+
+![Sessions Dir](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/cozyhosting-htb/cozyhosting_sessions.png)
+
+These are session cookies that we found. This could be useful for session hijacking through `/admin` page. Using one of the session cookies,
+send the request to `/admin` page.
+
+
+
+
+
