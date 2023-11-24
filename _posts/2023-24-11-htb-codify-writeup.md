@@ -95,7 +95,7 @@ ctrl+z(bg)
 $ stty raw -echo;fg
 $ export TERM = xterm
 ```
-As we are in as `www-data`, we should see what we have in the web server. A sqlite db file was found in `/var/www/` directory. And we found a credential of a user named 'joshua'.
+As we are in as `www-data`, we should see what we have in the web server. A sqlite db file was found in `/var/www/contact` directory. And we found a credential of a user named 'joshua'.
 
 ```plaintext
 joshua:$2a$12$SOn8Pf6z8fO/nVsNbAAequ/P6vLRJJl7gCUEiYBU2iLHn4G/p/Zw2
@@ -117,7 +117,7 @@ You can run `/opt/scripts/mysql-backup.sh` as root. Let's see the code here.
 
 ![mysql_backup.sh](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/mysql_backup_sh.png)
 
-It takes an input password for root and compares them with `.creds` in `root` directory. Then it has mysql commands to backup databases. Kinda strange that it uses password in the command as plaintext. To get to that, we have to bypass the validation first. Do you know the comparison operations of bash?
+It takes an input password for root and compares them with `.creds` in `root` directory. Then it has mysql commands to backup databases. Kinda strange that it uses password in the command as plaintext. To get to that, we have to bypass the validation first. Do you know about the string comparison operations of bash?
 
 ![Bash Comparisons](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/bash_comp.png)
 
