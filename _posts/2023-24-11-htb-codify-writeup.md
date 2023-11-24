@@ -89,7 +89,7 @@ You'll get the shell in no time.
 # Lateral Movement
 Now that you're in as `www-data`, first stabilize the shell. 
 
-```Bash
+```bash
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 ctrl+z(bg)
 $ stty raw -echo;fg
