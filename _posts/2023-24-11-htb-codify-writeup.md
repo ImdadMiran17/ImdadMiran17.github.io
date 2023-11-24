@@ -125,7 +125,7 @@ You can read briefly [here](https://tldp.org/LDP/abs/html/comparison-ops.html).
 
 To be exact , if double brackets are used in string comparison, you can use regex or pattern matching there. And in the script, double brackets are used. So if you put `*` as input, it will be a correct password cuz `*` matches everything including the required password.
 
-
+![root_en_route](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/root_on_route.png)
 
 And the script runs. But how can we see the password from those mysql commands that's backing up the databases? Well, we can use [pspy](https://github.com/DominicBreuker/pspy). 
 
@@ -133,6 +133,7 @@ It says "*pspy is a command line tool designed to snoop on processes without nee
 
 So login to ssh with another terminal. Then run pspy in one terminal and the script in other as sudo. You'll see the password in no time. You may have to run the script multiple times.
 
+![pspy](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/pspy.png)
 
 Now that you have the password, let's try to login as root. Annnnd, voila, we are root. You know where is the root flag.
 
