@@ -6,6 +6,8 @@ tags: [htb]
 toc: true    
 ---
 
+![Codify Pwned](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/codify_pwned.png "Pwned haha!!")
+
 # Introduction
 What's up!! Red Teamers. In this post we will try to solve the linux machine **Codify**. It is rated as easy and the machine is from **Open Beta Season III**. 
 
@@ -40,14 +42,17 @@ The IP redirects to `http://codify.htb/`. So we need to add the IP and hostname 
 
 Then we get ...
 
+![Home Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/home_page.PNG)
 
 It says it's a simple web application that allows you to test your Node.js code easily. There is also a about page if you notice. From about page we got something interesting.
 
+![About Page](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/codify_about.PNG)
 
 We found the library that was used to build this sandbox. It says The `vm2` library is widely used and trusted tool for sandboxing javascript. Just hold onto that, will you?
 
-And ... last but not least, the code editor.
+And... last but not least, the code editor.
 
+![Code Editor](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/editor.PNG)
 
 # Foothold 
 
@@ -98,7 +103,7 @@ joshua:$2a$12$SOn8Pf6z8fO/nVsNbAAequ/P6vLRJJl7gCUEiYBU2iLHn4G/p/Zw2
 
 It's a bcrypt hash. We can use either `hashcat` or `john` to crack this. It won't take long whichever you use. Upon cracking the password, you can use the password to login as `joshua` via ssh.
 
-
+![Got joshua](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/joshua.png)
 
 Now you have the user flag.
 
@@ -106,9 +111,11 @@ Now you have the user flag.
 
 Run the command `sudo -l`...
 
+![permissions](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/sudo-l.png)
 
 You can run `/opt/scripts/mysql-backup.sh` as root. Let's see the code here.
 
+![mysql_backup.sh](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/mysql_backup_sh.png)
 
 It takes an input password for root and compares them with `.creds` in `root` directory. Then it has mysql commands to backup databases. Kinda strange that it uses password in the command as plaintext. To get to that, we have to bypass the validation first. Do you know the comparison operations of bash?
 
@@ -121,7 +128,7 @@ To be exact , if double brackets are used in string comparison, you can use rege
 
 And the script runs. But how can we see the password from those mysql commands for backing up the database? Well, we can use [pspy](https://github.com/DominicBreuker/pspy). 
 
-It says *pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.*
+It says "*pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea*".
 
 So login to ssh with another terminal. Then run pspy in one terminal and the script in other as sudo. You'll see the password in no time. You may have to run the script multiple times.
 
