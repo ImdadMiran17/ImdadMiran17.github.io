@@ -119,6 +119,7 @@ You can run `/opt/scripts/mysql-backup.sh` as root. Let's see the code here.
 
 It takes an input password for root and compares them with `.creds` in `root` directory. Then it has mysql commands to backup databases. Kinda strange that it uses password in the command as plaintext. To get to that, we have to bypass the validation first. Do you know the comparison operations of bash?
 
+![Bash Comparisons](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/codify-htb/bash_comp.png)
 
 You can read briefly [here](https://tldp.org/LDP/abs/html/comparison-ops.html).
 
@@ -126,7 +127,7 @@ To be exact , if double brackets are used in string comparison, you can use rege
 
 
 
-And the script runs. But how can we see the password from those mysql commands for backing up the database? Well, we can use [pspy](https://github.com/DominicBreuker/pspy). 
+And the script runs. But how can we see the password from those mysql commands that's backing up the databases? Well, we can use [pspy](https://github.com/DominicBreuker/pspy). 
 
 It says "*pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea*".
 
