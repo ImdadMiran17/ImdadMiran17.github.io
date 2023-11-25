@@ -87,4 +87,4 @@ Create the exploit image with the your `machine ip` and `port` that you are list
 
 ![Rooted](https://raw.githubusercontent.com/ImdadMiran17/ImdadMiran17.github.io/main/assets/img/pilgrimage-htb/rooted.png)
 
-#### Happy Hacking:)
+#### Happy Hacking :)
