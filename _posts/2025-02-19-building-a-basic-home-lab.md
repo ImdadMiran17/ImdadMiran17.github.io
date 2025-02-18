@@ -1,3 +1,11 @@
+---
+title: Building a Basic Home Lab
+date: 2025-02-19 00:24:16 +0600
+categories: [Lab]
+tags: [Virtualbox, Windows, Kali] 
+toc: true    
+---
+
 # Building a Basic Home Lab
 After learning the theory on penetration testing or malware analysis, our minds want to dive into the action right away. To test new tools or to observe a malware characteristics, we need a seperate system where we can break things however we want. If something goes kaboom, I mean if something goes out of control, it should remain contained and our main workstation mustn't affected by that. So what do we need for that? Ummm.....
 
